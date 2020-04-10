@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -9,4 +11,4 @@ app.use(bodyParser.urlencoded({extended: false}));
 require('./controllers/authController')(app);
 require('./controllers/projectController')(app);
 
-app.listen(3000, ()=> console.log('Server started'));
+app.listen(process.env.PORT || 3000, ()=> console.log('Server started'));
